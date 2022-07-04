@@ -8,6 +8,7 @@
 ```
  # chroot /sysroot
  # passwd 
+ # touch /.autorelabel
  # exit
  # reboot
 
