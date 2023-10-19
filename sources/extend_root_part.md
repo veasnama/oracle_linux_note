@@ -30,6 +30,46 @@ major minor  #blocks  name
 ```
 fdisk /dev/xvdb
 ```
+```
+Command (m for help): p
+ 
+Disk /dev/xvdb: 107.3 GB, 107374182400 bytes
+255 heads, 63 sectors/track, 13054 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+ 
+    Device Boot      Start         End      Blocks   Id  System
+ 
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 1
+First cylinder (1-13054, default 1):
+Using default value 1
+Last cylinder or +size or +sizeM or +sizeK (1-13054, default 13054):
+Using default value 13054
+ 
+Command (m for help): t
+Selected partition 1
+Hex code (type L to list codes): 8e
+Changed system type of partition 1 to 8e (Linux LVM)
+ 
+Command (m for help): p
+ 
+Disk /dev/xvdb: 107.3 GB, 107374182400 bytes
+255 heads, 63 sectors/track, 13054 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+ 
+    Device Boot      Start         End      Blocks   Id  System
+/dev/xvdb1               1       13054   104856223+  8e  Linux LVM
+ 
+Command (m for help): w
+The partition table has been altered!
+ 
+Calling ioctl() to re-read partition table.
+Syncing disks.
+```
 - Create a physical volume
 ```
 pvcreate /dev/xvdb1
